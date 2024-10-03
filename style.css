@@ -1,0 +1,50 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    color: #333333;
+    font-family: "lucida grande", Tahoma, verdana, arial, sans-serif;
+    font-size: 15px;
+}
+
+.div-kiri {
+    display: block;
+    width: 445px;
+    float: left;
+    min-height: 100px;
+    margin: 0px 2px 0px 20px;
+    padding: 0px;
+}
+
+.div-kiri h2 b {
+        font-size:44px;
+        text-shadow:0 3px #000;
+        letter-spacing:-1px;
+        color: steelblue;
+}
+
+.div-kanan {
+    float: right;
+    display: block;
+    width: 500px;
+    margin: 140px 50px 0px 0px;
+    height: auto;
+    float: right;
+    border-left: solid 1px #000000;
+    padding-left: 20px;
+}
+
+h2 {
+    font-size: 50px;
+    font-weight: 100px;
+    letter-spacing: -5px;
+    line-height: 35px;
+    color: #CCC;
+}
+
+ul li b {
+	color: steelblue;
+}
+
+p {
+	color: steelblue;
+}
