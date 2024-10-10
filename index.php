@@ -16,9 +16,7 @@
         <p>
             <marquee><b>Materi Pembuatan Sistem Aplikasi dengan Studi Kasus</b></marquee>
         </p>
-        <form action="tambah_data.php" method="get">
-            <input type="submit" value="Tambah Data">
-        </form>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Data</button>
         <br>
         <h4>Data Penyewaan Lapangan Badminton "Super Badminton"</h4>
         <table border="1" width="700" height="100">
@@ -87,11 +85,11 @@
                     <td>
                         <div>
                             <a href="" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal<?= $res['id'] ?>"><i class="fa fa-edit"></i></a>
-                            <a href="function.php?id=<?php echo $res['id'] ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                            <a href="function.php?id=<?php echo $res['id'] ?>" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                         </div>
                         <!-- modal edit -->
                         <div class="modal fade" id="modal<?= $res['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
+                            <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Data</h1>
@@ -115,8 +113,8 @@
                                                     <label for="status">Status:</label><br>
                                                     <select name="status" class="form-control">
                                                         <option value="">Pilih Status...</option>
-                                                        <option value="Biasa" <?php if($res['status'] == 'Biasa') echo 'selected'; ?> >Biasa</option>
-                                                        <option value="Member" <?php if($res['status'] == 'Member') echo 'selected'; ?>>Member</option>
+                                                        <option value="Biasa" <?php if ($res['status'] == 'Biasa') echo 'selected'; ?>>Biasa</option>
+                                                        <option value="Member" <?php if ($res['status'] == 'Member') echo 'selected'; ?>>Member</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -162,6 +160,46 @@
                 </ol>
             </li>
     </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form action="function.php" method="POST" autocomplete="on">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Peminjam</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="nama_penyewa">Nama Penyewa:</label>
+                                <input type="text" name="nama_penyewa" class="form-control" required><br>
+
+                                <label for="jam_sewa">Jam Sewa:</label>
+                                <input type="text" name="jam_sewa" class="form-control" required><br>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="hari">Hari:</label>
+                                <input type="text" name="hari" class="form-control" required><br>
+
+                                <label for="status">Status:</label><br>
+                                <select name="status" class="form-control mb-2">
+                                    <option value="">Pilih Status...</option>
+                                    <option value="Biasa">Biasa</option>
+                                    <option value="Member">Member</option>
+                                </select>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" name="action" value="tambah" class="btn btn-primary">Tambah</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- modal tambah-->
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
